@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Predict</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/image-predict.css') }}">
+</head>
+<body>
+    <div class="div-header">
+        Detectar edad por imagen
+        <ul class="nav">
+            <li><a id="1" href="/home">Home</a></li>
+            <li><a id="2" href="/video-feed">WebCam Predict</a></li>
+            <li><a id= 3" href="/about">About</a></li>
+        </ul>
+    </div>
+    
+    <div class="div-form">
+        <form action="{{ url_for('image_predict') }}" enctype="multipart/form-data" method="POST">
+            <label for="file-upload" class="custom-file-upload">
+                Choose an Image
+            </label>
+            <input id="file-upload" name="img" type="file" accept="image/*">
+            
+            <button type="submit">Upload & Predict</button>
+        </form>
+    
+        <div class="result-container">
+            {% if img %}
+                <h1>Rendered Image</h1>
+                <img class="uploaded-image" src="{{ url_for('static', filename=img) }}" alt="Uploaded Image">
+            {% else %}
+                <h1 class="placeholder-text">Image will be rendered here...</h1>
+            {% endif %}
+    
+            {% if pred %}
+                <h1 class="prediction-text">Prediction: {{ pred }}</h1>
+            {% else %}
+                <h1 class="prediction-text">Prediction: </h1>
+            {% endif %}
+        </div>
+        <div class="div-back-to-home">
+            <a href="/" class="button">Back to Home</a>
+        </div>
+    </div>
+    
+</body>
+</html>

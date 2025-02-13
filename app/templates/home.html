@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconocimiento de Edad</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+    <div class="div-header">
+        Aplicación de reconocimiento de edad
+        <ul class="nav">
+            <li><a id="1" href="/image-predict">Image Predict</a></li>
+            <li><a id="2" href="/video-feed">WebCam Predict</a></li>
+            <li><a id= 3" href="/about">About</a></li>
+        </ul>
+    </div>
+    <p>
+        Esta es una aplicación que es capaz, mediante IA, reconocer la cara del usuario a través
+        de una imagen o mediante una cámara web.
+    </p>
+</body>
+</html>
